@@ -3,9 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio | Céline</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4e9d8;
+            --panel: #fff7ed;
+            --accent: #b65749;
+            --accent-2: #5b7d7d;
+            --text: #2b2b2b;
+            --muted: #7a6a5f;
+            --border: #d7c3b2;
+            --shadow: rgba(43, 43, 43, 0.12);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: radial-gradient(circle at top left, #f9f3ea 0%, #f4e9d8 45%, #e7d8c8 100%);
+            color: var(--text);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: linear-gradient(135deg, rgba(181,87,73,0.05) 25%, transparent 25%),
+                              linear-gradient(225deg, rgba(91,125,125,0.05) 25%, transparent 25%);
+            background-size: 56px 56px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .page {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 24px 18px 48px;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 18px;
+            align-items: center;
+            padding: 22px;
+            border: 2px solid var(--border);
+            background: var(--panel);
+            border-radius: 22px;
+            box-shadow: 0 15px 40px var(--shadow);
+            margin-bottom: 28px;
+        }
+
+        header img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 22px;
+            border: 4px solid var(--accent);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(2rem, 3vw, 3rem);
+            letter-spacing: 0.05em;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            color: var(--muted);
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: #fff;
+            color: var(--accent-2);
+            text-decoration: none;
+            font-weight: 700;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 20px rgba(91,125,125,0.08);
+        }
+
+        nav a:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 24px;
+            padding: 26px;
+            box-shadow: 0 18px 36px var(--shadow);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.7rem;
+            letter-spacing: 0.04em;
+            color: var(--accent-2);
+        }
+
+        .card p,
+        .card li,
+        .card a {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .card ul {
+            padding-left: 18px;
+            margin: 12px 0 0;
+        }
+
+        .highlight {
+            display: inline-flex;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(181,87,73,0.14);
+            color: var(--accent);
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .projects {
+            display: grid;
+            gap: 22px;
+        }
+
+        .project-item {
+            border-left: 4px solid var(--accent);
+            padding-left: 16px;
+        }
+
+        .project-item h3 {
+            margin: 0 0 8px;
+            font-size: 1.15rem;
+        }
+
+        .project-item p {
+            margin: 0;
+        }
+
+        .contact-card {
+            display: grid;
+            gap: 18px;
+        }
+
+        .contact-card a,
+        .contact-card button {
+            display: block;
+            width: max-content;
+            text-decoration: none;
+            background: var(--accent);
+            color: #fff;
+            padding: 14px 22px;
+            border-radius: 999px;
+            border: none;
+            font-weight: 700;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-card a:hover,
+        .contact-card button:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 8px;
+            color: var(--muted);
+        }
+
+        footer {
+            margin-top: 32px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: var(--accent-2);
+            text-decoration: none;
+        }
+
+        @media (max-width: 860px) {
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            header img {
+                margin: 0 auto;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hallo Welt</h1>
+    <div class="page">
+        <header>
+            <img src="img/portrait_1.jpg" alt="Portrait Céline">
+            <div>
+                <span class="highlight">Mediamatikerin EFZ</span>
+                <h1>Hallo, ich bin Céline</h1>
+                <p>Ich gestalte digitale Erlebnisse mit einem Auge fürs Detail. Mein Stil verbindet kreative Retrofusion mit modernem Interface-Design und klarer Kommunikation.</p>
+            </div>
+        </header>
+
+        <nav>
+            <a href="#ueber-mich">Über mich</a>
+            <a href="#projekte">Projekte</a>
+            <a href="#kontakt">Kontakt</a>
+            <a href="#more">Mehr</a>
+        </nav>
+
+        <div class="section-grid">
+            <section class="card" id="ueber-mich">
+                <h2>Über mich</h2>
+                <p>Ich befinde mich in der Ausbildung zur Mediamatikerin und habe bereits Erfahrung in Grafikdesign, Webentwicklung und Kundenkommunikation gesammelt.</p>
+                <ul>
+                    <li>Design von Logos, Posters und Social-Media-Material</li>
+                    <li>Erstellung von Webseiten mit responsivem Layout</li>
+                    <li>Texte, Konzepte und Projektkoordination</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>Meine Fähigkeiten</h2>
+                <p>Ich arbeite gerne an Projekten, die handgemachten Retro-Charme mit modernen digitalen Lösungen kombinieren.</p>
+                <ul>
+                    <li>Adobe Creative Suite</li>
+                    <li>HTML / CSS / JavaScript</li>
+                    <li>Branding & Storytelling</li>
+                    <li>Fotografie & Bildbearbeitung</li>
+                </ul>
+            </section>
+        </div>
+
+        <section class="card" id="projekte">
+            <h2>Projekte</h2>
+            <div class="projects">
+                <article class="project-item">
+                    <h3>Retro-Webseite</h3>
+                    <p>Design und Umsetzung einer nostalgischen Portfolioseite mit warmen Farben, handschriftlichen Elementen und modernem Responsive Layout.</p>
+                </article>
+                <article class="project-item">
+                    <h3>Markenauftritt</h3>
+                    <p>Corporate Design für ein lokales Startup: Logo, Visitenkarten und Social Media Grafik mit Vintage-Anmutung.</p>
+                </article>
+                <article class="project-item">
+                    <h3>Event-Poster</h3>
+                    <p>Plakatgestaltung für eine Kulturveranstaltung mit Retro-Farben, Typografie im Neonschrift-Stil und klarer Struktur.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="card" id="kontakt">
+            <h2>Kontakt</h2>
+            <div class="contact-card">
+                <p>Ich freue mich auf neue Projekte, spannende Kooperationen und Austausch zu digitalem Design.</p>
+                <a href="mailto:ceciliename@example.com">E-Mail schreiben</a>
+                <div class="contact-info">
+                    <div><strong>Telefon:</strong> +41 79 123 45 67</div>
+                    <div><strong>Ort:</strong> Ufhusen, Schweiz</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Portfolio im Retro-Stil für eine Mediamatikerin. Entwickelt von Céline.</p>
+        </footer>
+    </div>
 </body>
 </html>
